@@ -8,11 +8,13 @@ namespace itemSelectionSystem
         // Список доступных предметов, находящихся рядом с игроком
         private readonly List<GameObject> _itemsInRange = new List<GameObject>();
         
-        private ItemSelectionSystem _itemSelectionSystem;
+        private ItemSelectionSystem _system;
+
+        private Collider _collider;
         
         private void Awake()
         {
-            _itemSelectionSystem = FindObjectOfType<ItemSelectionSystem>();
+            _system = FindObjectOfType<ItemSelectionSystem>();
         }
 
         // Подходя к предмету, добавляем его в список доступных для подбора предметов
@@ -38,14 +40,19 @@ namespace itemSelectionSystem
             // Если в зоне есть предметы и игрок нажимает клавишу клавишу подбора предмета
             if (_itemsInRange.Count > 0 && Input.GetKeyDown(KeyCode.E))
             {
-                // Подбираем первый предмет из списка
-                _itemSelectionSystem.GetItem(_itemsInRange[0]);
-                
-                _itemsInRange[0].SetActive(false);
-
-                // Удаляем предмет из списка после подбора
-                _itemsInRange.RemoveAt(0);
+                SelectedItem();
             }
+        }
+
+        private void SelectedItem()
+        {
+            // Подбираем первый предмет из списка
+            _system.GetItem(_itemsInRange[0]);
+            
+            _itemsInRange[0].SetActive(false);
+
+            // Удаляем предмет из списка после подбора
+            _itemsInRange.RemoveAt(0);
         }
     }
 }

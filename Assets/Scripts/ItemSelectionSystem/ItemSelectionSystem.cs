@@ -13,9 +13,9 @@ namespace itemSelectionSystem
             items.Add(currentObject);
         }
 
-        public void GiveItem()
+        public void DropItem(GameObject currentObject)
         {
-            
+            items.Remove(currentObject);
         }
     }
 }

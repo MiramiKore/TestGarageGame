@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    // Перемещение объекта
+    // Перемещение игрока
     private void Move()
     {
         var xMoveAxis  = Input.GetAxis("Horizontal");

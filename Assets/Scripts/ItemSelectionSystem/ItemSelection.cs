@@ -9,8 +9,6 @@ namespace itemSelectionSystem
         private readonly List<GameObject> _itemsInRange = new List<GameObject>();
         
         private ItemSelectionSystem _system;
-
-        private Collider _collider;
         
         private void Awake()
         {
@@ -48,7 +46,6 @@ namespace itemSelectionSystem
         {
             // Подбираем первый предмет из списка
             _system.GetItem(_itemsInRange[0]);
-            
             _itemsInRange[0].SetActive(false);
 
             // Удаляем предмет из списка после подбора

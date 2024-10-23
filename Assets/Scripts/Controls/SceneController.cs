@@ -24,6 +24,9 @@ namespace Controls
 #if UNITY_EDITOR
             // Для редактора Unity останавливаем режим воспроизведения
             UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // Для билда игры выполняем выход
+            Application.Quit();
 #endif
         }
     }
